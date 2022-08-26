@@ -28,11 +28,13 @@ app.get("/", async (req, res) => {
     (el) => el.textContent
   );
 
+  actualizado = actualizado.slice(15);
+
   res.send("\nLast Updated: " +
     actualizado +
-    " \nBlue Compra: " +
+    " - \nBlue Buy: " +
     compraBlue +
-    " \nBlue Venta: " +
+    " - \nBlue Sell: " +
     ventaBlue +
     " \n")
 

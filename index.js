@@ -12,11 +12,26 @@ app.get("/", async (req, res) => {
 
   // const text = await page.$eval("h1", (el) => el.textContent);
 
+  let compraBlue = await page.$eval(
+    ".values > .compra > .val",
+    (el) => el.textContent
+  );
+
   let ventaBlue = await page.$eval(
     ".values > .venta > .val",
     (el) => el.textContent
     // (el) => el.innerHTML
   );
+
+  // let actualizado = await page.$eval(
+  //   ".update > .container",
+  //   (el) => el.textContent
+  // );
+  // let ubica = actualizado.indexOf(":");
+  // //console.log(ubica)
+  // actualizado = actualizado.substr(0, ubica + 3);
+
+
 
   // console.log(
   //   // "\nLast Updated: " +
@@ -30,7 +45,7 @@ app.get("/", async (req, res) => {
 
   // res.send(text);
 
-  res.send(ventaBlue);
+  res.send(compraBlue + ventaBlue);
 
   await browser.close();
 });

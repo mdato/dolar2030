@@ -29,7 +29,8 @@ app.get("/", async (req, res) => {
   );
   let ubica = actualizado.indexOf(":");
   //console.log(ubica)
-  actualizado = actualizado.substr(0, ubica + 3);
+  // actualizado = actualizado.substr(0, ubica + 3);
+  actualizado = actualizado.slice(0, ubica + 3);
 
 
 
@@ -48,7 +49,8 @@ app.get("/", async (req, res) => {
   // res.send(compraBlue + ventaBlue);
 
   res.send("\nLast Updated: " +
-    actualizado.substr(42, 13).trim() +
+    // actualizado.substr(42, 13).trim() +
+    actualizado.slice(42, 55).trim() +
     "\nBlue Compra: " +
     compraBlue +
     "\nBlue Venta: " +

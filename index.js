@@ -23,13 +23,13 @@ app.get("/", async (req, res) => {
     // (el) => el.innerHTML
   );
 
-  // let actualizado = await page.$eval(
-  //   ".update > .container",
-  //   (el) => el.textContent
-  // );
-  // let ubica = actualizado.indexOf(":");
-  // //console.log(ubica)
-  // actualizado = actualizado.substr(0, ubica + 3);
+  let actualizado = await page.$eval(
+    ".update > .container",
+    (el) => el.textContent
+  );
+  let ubica = actualizado.indexOf(":");
+  //console.log(ubica)
+  actualizado = actualizado.substr(0, ubica + 3);
 
 
 
@@ -45,7 +45,15 @@ app.get("/", async (req, res) => {
 
   // res.send(text);
 
-  res.send(compraBlue + ventaBlue);
+  // res.send(compraBlue + ventaBlue);
+
+  res.send("\nLast Updated: " +
+    actualizado.substr(42, 13).trim() +
+    "\nBlue Compra: " +
+    compraBlue +
+    "\nBlue Venta: " +
+    ventaBlue +
+    "\n")
 
   await browser.close();
 });
